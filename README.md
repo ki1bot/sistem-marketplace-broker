@@ -1,59 +1,390 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Marketplace Broker
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Halo semuanya! 👋
 
-## About Laravel
+Project ini adalah **Sistem Marketplace Broker** yang dibuat untuk membantu proses pengelolaan broker, seller, buyer, produk, transaksi, negosiasi, komisi broker, dan riwayat transaksi dalam satu sistem dashboard.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Project ini dibangun menggunakan **Laravel 12** sebagai backend, **ReactJS** sebagai frontend, dan **MySQL** sebagai database.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Live Demo:** https://sistemmarketplacebroker.vercel.app/
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🛠️ Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Project ini dibuat menggunakan teknologi berikut:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Laravel 12** - Backend API
+* **ReactJS** - Frontend user interface
+* **MySQL** - Database
+* **JavaScript** - Bahasa utama frontend
+* **Tailwind CSS** - Styling frontend
+* **Vite** - Development server frontend
+* **Composer** - Dependency manager Laravel
+* **npm** - Dependency manager frontend
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## User Roles
 
-### Premium Partners
+| Role       | Access                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| **Admin**  | Mengelola data broker, seller, buyer, produk, transaksi, negosiasi, komisi, dan riwayat transaksi |
+| **Broker** | Melihat dan mengelola data yang berkaitan dengan broker                                           |
+| **Seller** | Mengelola data produk dan transaksi yang berkaitan dengan seller                                  |
+| **Buyer**  | Melihat produk dan melakukan transaksi atau negosiasi                                             |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## Getting Started
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Prerequisites
 
-## Code of Conduct
+Pastikan sudah menginstall:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* PHP `>= 8.2`
+* Composer
+* Node.js `>= 18.x`
+* npm
+* MySQL
+* Git
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 1. Clone Repository
 
-## License
+```bash
+git clone https://github.com/ki1bot/sistem-marketplace-broker.git
+cd sistem-marketplace-broker
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 2. Setup Backend Laravel
+
+Masuk ke folder backend:
+
+```bash
+cd backend
+```
+
+Install dependency Laravel:
+
+```bash
+composer install
+```
+
+Copy file environment:
+
+```bash
+cp .env.example .env
+```
+
+Generate application key:
+
+```bash
+php artisan key:generate
+```
+
+Atur konfigurasi database di file `.env`:
+
+```env
+APP_NAME="Sistem Marketplace Broker"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sistem_marketplace_broker
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Buat database MySQL:
+
+```sql
+CREATE DATABASE sistem_marketplace_broker;
+```
+
+Jalankan migration:
+
+```bash
+php artisan migrate
+```
+
+Jalankan seeder jika tersedia:
+
+```bash
+php artisan db:seed
+```
+
+Jalankan server Laravel:
+
+```bash
+php artisan serve
+```
+
+Backend akan berjalan di:
+
+```txt
+http://localhost:8000
+```
+
+---
+
+## 3. Setup Frontend React
+
+Buka terminal baru, lalu masuk ke folder frontend:
+
+```bash
+cd frontend
+```
+
+Install dependency frontend:
+
+```bash
+npm install
+```
+
+Buat file `.env` di folder frontend:
+
+```env
+VITE_API_URL=http://localhost:8000/api
+```
+
+Jalankan frontend:
+
+```bash
+npm run dev
+```
+
+Frontend akan berjalan di:
+
+```txt
+http://localhost:5173
+```
+
+---
+
+## 4. Database Setup
+
+Jika migration belum tersedia, gunakan struktur tabel utama berikut sebagai acuan awal.
+
+```sql
+CREATE TABLE users (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role ENUM('admin', 'broker', 'seller', 'buyer') DEFAULT 'buyer',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+CREATE TABLE brokers (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NULL,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(50) NULL,
+  address TEXT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE sellers (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NULL,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(50) NULL,
+  address TEXT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE buyers (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NULL,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(50) NULL,
+  address TEXT NULL,
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE products (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  seller_id BIGINT UNSIGNED NULL,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NULL,
+  price DECIMAL(15,2) NOT NULL DEFAULT 0,
+  stock INT NOT NULL DEFAULT 0,
+  image VARCHAR(255) NULL,
+  status ENUM('active', 'inactive') DEFAULT 'active',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (seller_id) REFERENCES sellers(id) ON DELETE SET NULL
+);
+
+CREATE TABLE transactions (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  product_id BIGINT UNSIGNED NULL,
+  buyer_id BIGINT UNSIGNED NULL,
+  seller_id BIGINT UNSIGNED NULL,
+  broker_id BIGINT UNSIGNED NULL,
+  quantity INT NOT NULL DEFAULT 1,
+  total_price DECIMAL(15,2) NOT NULL DEFAULT 0,
+  status ENUM('pending', 'process', 'completed', 'cancelled') DEFAULT 'pending',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL,
+  FOREIGN KEY (buyer_id) REFERENCES buyers(id) ON DELETE SET NULL,
+  FOREIGN KEY (seller_id) REFERENCES sellers(id) ON DELETE SET NULL,
+  FOREIGN KEY (broker_id) REFERENCES brokers(id) ON DELETE SET NULL
+);
+
+CREATE TABLE negotiations (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  transaction_id BIGINT UNSIGNED NULL,
+  offered_price DECIMAL(15,2) NOT NULL DEFAULT 0,
+  note TEXT NULL,
+  status ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (transaction_id) REFERENCES transactions(id) ON DELETE CASCADE
+);
+
+CREATE TABLE commissions (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  transaction_id BIGINT UNSIGNED NULL,
+  broker_id BIGINT UNSIGNED NULL,
+  commission_amount DECIMAL(15,2) NOT NULL DEFAULT 0,
+  status ENUM('unpaid', 'paid') DEFAULT 'unpaid',
+  created_at TIMESTAMP NULL DEFAULT NULL,
+  updated_at TIMESTAMP NULL DEFAULT NULL,
+  FOREIGN KEY (transaction_id) REFERENCES transactions(id) ON DELETE CASCADE,
+  FOREIGN KEY (broker_id) REFERENCES brokers(id) ON DELETE SET NULL
+);
+```
+
+> Jika project sudah memiliki file migration Laravel, lebih baik gunakan `php artisan migrate` daripada menjalankan query manual.
+
+---
+
+## Pages & Features
+
+### Admin Dashboard
+
+* **Dashboard Utama** — Ringkasan data sistem marketplace broker
+* **Manajemen Broker** — Tambah, edit, hapus, dan lihat data broker
+* **Manajemen Seller** — Mengelola data seller
+* **Manajemen Buyer** — Mengelola data buyer
+* **Data Produk** — Mengelola produk marketplace
+* **Transaksi** — Mengelola transaksi buyer, seller, broker, dan produk
+* **Negosiasi** — Mengelola proses tawar-menawar harga
+* **Komisi Broker** — Mengelola komisi yang diterima broker
+* **Riwayat Transaksi** — Melihat histori transaksi
+* **Visualisasi Data** — Grafik produk dan status transaksi
+
+---
+
+## API Endpoint
+
+Contoh endpoint backend:
+
+```txt
+GET    /api/products
+POST   /api/products
+GET    /api/products/{id}
+PUT    /api/products/{id}
+DELETE /api/products/{id}
+
+GET    /api/brokers
+POST   /api/brokers
+GET    /api/sellers
+POST   /api/sellers
+GET    /api/buyers
+POST   /api/buyers
+
+GET    /api/transactions
+POST   /api/transactions
+
+GET    /api/negotiations
+POST   /api/negotiations
+
+GET    /api/commissions
+POST   /api/commissions
+```
+
+Sesuaikan endpoint di atas dengan route yang ada di file Laravel:
+
+```txt
+routes/api.php
+```
+
+---
+
+## Build for Production
+
+### Backend Laravel
+
+Optimasi Laravel:
+
+```bash
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### Frontend React
+
+Build frontend:
+
+```bash
+cd frontend
+npm run build
+```
+
+Hasil build frontend akan berada di folder:
+
+```txt
+frontend/dist
+```
+
+---
+
+## Troubleshooting
+
+* Pastikan MySQL sudah berjalan.
+* Pastikan database `sistem_marketplace_broker` sudah dibuat.
+* Pastikan konfigurasi `.env` backend sudah benar.
+* Jalankan ulang server setelah mengubah `.env`.
+* Jika frontend gagal mengambil data, cek `VITE_API_URL`.
+* Jika migration error, cek koneksi database dan struktur tabel.
+* Jika CORS error, cek konfigurasi CORS pada Laravel.
+* Jika package error, hapus `node_modules` lalu jalankan ulang `npm install`.
+
+---
+
+## Catatan Keamanan
+
+* Jangan commit file `.env`.
+* Jangan menulis password database di README.
+* Gunakan authentication untuk route yang bersifat admin.
+* Validasi semua input dari frontend.
+* Gunakan middleware untuk membatasi akses berdasarkan role user.
+
+---
+
+## Credits & Contact
+
+**Rifqi Susanto**
+
+GitHub: [ki1bot](https://github.com/ki1bot)
+
+⭐ Jika project ini membantu atau menarik, jangan lupa beri star di GitHub!
