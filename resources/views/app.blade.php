@@ -2,6 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="public/assets/logoKibot.png" />
+    <link rel="shortcut icon" type="image/png" href="public/assets/logoKibot.png" />
+    <link rel="apple-touch-icon" href="public/assets/logoKibot.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sistem Marketplace Broker | Kelompok 8</title>
 
