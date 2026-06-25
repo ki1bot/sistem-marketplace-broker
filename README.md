@@ -6,7 +6,7 @@ Project ini adalah **Sistem Marketplace Broker** yang dibuat untuk membantu pros
 
 Project ini dibangun menggunakan **Laravel 12** sebagai backend, **ReactJS** sebagai frontend, dan **MySQL** sebagai database.
 
-**Live Demo:** https://sistemmarketplacebroker.vercel.app/
+**Live Demo:** https://sistemmarketplacebroker.page.gd
 
 ---
 
