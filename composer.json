@@ -1,9 +1,13 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "ki1bot/sistem-marketplace-broker",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Sistem Marketplace Broker",
+    "keywords": [
+        "laravel",
+        "marketplace",
+        "broker"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -74,6 +78,9 @@
         }
     },
     "config": {
+        "platform": {
+            "php": "8.3.19"
+        },
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
